@@ -20,12 +20,20 @@ A public (no auth) endpoint to get a list of paginated tours by the travel `slug
 ### Notes
 
 <p>Feel  free to use the native Laravel authentication.</p>
+
 1. We use UUIDs as primary keys instead of incremental IDs, but it's not required for you to use them, although highly appreciated;
+
 2. <b>Tours prices</b> are integer multiplied by 100: for example, €999 euro will be `99900`, but, when returned to Frontends, they will be formatted ( `99900` / `100`);
+
 3. <b>Tours names</b> inside the `samples` are a kind-of what we use internally, but you can use whatever you want;
+
 4. Every admin user will also have the `editor` role;
+
 5. Every creation endpoint, of course, should create one and only one resource. You can't, for example, send an array of resource to create;
+
 6. Usage of php-cs-fixer and larastan are a plus;
+
 7. Creating docs is big plus;
+
 8. Feature tests are a big big plus.
 
