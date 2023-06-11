@@ -17,6 +17,8 @@
 6. A public (no auth) endpoint to get a list of paginated travels. It must return only `public` travels;
 A public (no auth) endpoint to get a list of paginated tours by the travel `slug` (e.g. all the tours of the travel `foo-bar`). Users can filter (search) the results by `priceFrom`, `priceTo`, `dateFrom` (from that `startingDate`) and `dateTo` (until that `startingDate`). User can sort the list by `price` asc and desc. They will **always** be sorted, after every additional user-provided filter, by ``startingDate`` asc.
 
+![image](https://github.com/hareom284/laravelmentorshiptest/assets/64596861/7e001cb0-870d-42bb-8173-efcb4fc134e3)
+
 ### Notes
 
 <p>Feel  free to use the native Laravel authentication.</p>
