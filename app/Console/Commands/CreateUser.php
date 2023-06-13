@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Role;
+use PHPUnit\Framework\MockObject\Stub\ReturnCallback;
 
 class CreateUser extends Command
 {
@@ -31,20 +32,21 @@ class CreateUser extends Command
     public function handle()
     {
         //get user's email
-
-        $email = $this->ask("Enter New User Email");
-
-        $password = $this->ask("Enter Password");
+        $user = collect([
+            'name' => $this->ask("Enter User Name"),
+            'email' => $this->ask("Enter New User Email"),
+            'password' => $this->ask("Enter Password"),
+        ]);
 
         $role = $this->ask("Please Select Role \n 1.admin \n 2.editor");
 
         $ROLES = ['admin', 'editor'];
 
         $validator = Validator::make([
-            'email' => $email,
-            'password' => $password,
+            ...$user,
             'role' => $role
         ], [
+            'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
             'role' => 'required|in:1,2'
@@ -56,21 +58,18 @@ class CreateUser extends Command
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);
             }
+            return;
         } else {
 
 
             try {
                 DB::beginTransaction();
 
-                $users = User::create([
-                    "email" => $email,
-                    "password" => $password
-                ]);
+                $users = User::create($user->all());
 
-                $role_uuid = Role::where("name", $ROLES[$role])->pluck("id")->first();
+                $role_uuid = Role::where("name", $ROLES[--$role])->pluck("id")->first();
 
                 $users->roles()->attach([$role_uuid]);
-
                 DB::commit();
                 $this->info("User Created Successfully");
             } catch (\Exception $e) {
