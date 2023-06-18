@@ -44,6 +44,8 @@ class User extends Authenticatable
             set: fn ($value) => Hash::make($value)
         );
     }
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

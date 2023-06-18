@@ -7,8 +7,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
-    |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
@@ -19,7 +17,9 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
+    |---------------------------------------
     |--------------------------------------------------------------------------
+    | Application Name-----------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -168,6 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\UserRoleProvider::class
     ])->toArray(),
 
     /*

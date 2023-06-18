@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TourApiRequest;
 use App\Http\Resources\TourResource;
 use App\Models\Travel;
+use App\Models\Tour;
+use Illuminate\Http\Request;
+
 
 
 class TourApiController extends Controller
@@ -31,6 +34,16 @@ class TourApiController extends Controller
             ->orderByDesc('start_date')
             ->paginate(15);
         return TourResource::collection($tours);
+    }
+
+    public function create(Request $request)
+    {
+       Tour::create([
+         "name" => $request->name,
+         "travel_id" => $request->travel_id,
+         "start_date" => $request->start_date,
+         "end_date" => $request->end_date
+       ]);
     }
 }
 
