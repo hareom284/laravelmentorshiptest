@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\V1\TourApiController;
 use App\Http\Controllers\Api\V1\TravelApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\AuthApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 
-Route::get('travels',[TravelApiController::class,'index']);
-Route::get('travels/{travel:slug}/tours',[TourApiController::class,'index']);
+Route::prefix('admin')
+    ->middleware(['auth:sanctum'])->group(function () {
+        Route::post('travels', [TravelApiController::class, 'create']);
+        Route::post('tours', [TourApiController::class, 'create']);
+    });
+
+Route::post("admin/login", [AuthApiController::class, 'login']);
+Route::get('travels', [TravelApiController::class, 'index']);
+Route::get('travels/{travel:slug}/tours', [TourApiController::class, 'index']);
