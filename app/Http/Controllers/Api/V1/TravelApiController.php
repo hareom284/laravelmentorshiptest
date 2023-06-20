@@ -20,18 +20,6 @@ class TravelApiController extends Controller
     {
         try {
 
-            /***
-             * this is global function
-             *  that implement inside provider and App\Helpers
-             */
-
-            if(!checkUserRole(config('userrole.admin')))
-            {
-              return response()->json([
-                "message" => "You don't have access this action",
-                "data" => "Access denied"
-              ]);
-            }
 
             $travels = Travel::create($request->validated());
             return new GetTravelResource($travels);

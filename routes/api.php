@@ -20,9 +20,9 @@ use App\Http\Controllers\Api\V1\AuthApiController;
 
 
 Route::prefix('admin')
-    ->middleware(['auth:sanctum'])->group(function () {
+    ->middleware(['auth:sanctum','role:admin'])->group(function () {
         Route::post('travels', [TravelApiController::class, 'create']);
-        Route::post('tours', [TourApiController::class, 'create']);
+        Route::post('travels/{travel}/tour',[TourApiController::class, 'create']);
     });
 
 Route::post("admin/login", [AuthApiController::class, 'login']);

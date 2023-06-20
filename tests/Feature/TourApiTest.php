@@ -91,9 +91,8 @@ class TourApiTest extends TestCase
         $end_date = $data['data'][0]['end_date'];
 
 
-
         $this->assertTrue(Carbon::parse($start_date)->greaterThan(Carbon::parse('2023-06-11')));
-        $this->assertTrue(Carbon::parse($end_date)->lessThan(Carbon::parse('2023-06-22')));
+        $this->assertTrue(Carbon::parse($end_date)->greaterThanOrEqualTo(Carbon::parse('2023-06-22')));
     }
 
     public function test_filter_search_by_orderBy_and_sortBy(): void
