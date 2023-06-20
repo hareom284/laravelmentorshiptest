@@ -2,7 +2,7 @@
 
 return [
     "admin" => "admin",
-    "editor" => "editor"
+    "editor" => "editor",
 ]
 
 ?>

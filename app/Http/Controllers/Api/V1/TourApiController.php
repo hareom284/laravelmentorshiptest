@@ -8,6 +8,7 @@ use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTourRequest;
 
 
 
@@ -36,14 +37,12 @@ class TourApiController extends Controller
         return TourResource::collection($tours);
     }
 
-    public function create(Request $request)
+    public function create(Travel $travel,StoreTourRequest $request)
     {
-       Tour::create([
-         "name" => $request->name,
-         "travel_id" => $request->travel_id,
-         "start_date" => $request->start_date,
-         "end_date" => $request->end_date
-       ]);
+
+      $tour = $travel->tours()->create($request->all());
+
+      return new TourResource($tour);
     }
 }
 
