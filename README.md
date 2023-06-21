@@ -27,11 +27,11 @@ A public (no auth) endpoint to get a list of paginated tours by the travel `slug
 
 - [x] `Tours prices` are integer multiplied by 100: for example, €999 euro will be `99900`, but, when returned to Frontends, they will be formatted ( `99900` / `100`);
 
-- [ ] `Tours names` inside the `samples` are a kind of what we use internally, but you can use whatever you want;
+- [x] `Tours names` inside the `samples` are a kind of what we use internally, but you can use whatever you want;
 
 - [x] Every admin user will also have the `editor` role;
 
-- [ ] Every creation endpoint, of course, should create one and only one resource. You can't, for example, send an array of resources to create;
+- [x] Every creation endpoint, of course, should create one and only one resource. You can't, for example, send an array of resources to create;
 
 - [ ] Usage of php-cs-fixer and larastan are a plus;
 
