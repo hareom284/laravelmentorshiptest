@@ -15,26 +15,26 @@ class AuthApiController extends Controller
         try {
             if (Auth::attempt($credentials)) {
                 $user = Auth::user();
-                $USER_AGENT =  substr($request->userAgent() ?? '', 0, 255);
+                $USER_AGENT = substr($request->userAgent() ?? '', 0, 255);
                 $token = $user->createToken($USER_AGENT)->plainTextToken;
 
                 return response()->json([
-                    "message" => "success",
-                    "data" => [
-                        "token" => $token,
-                        "user_data" => $user
-                    ]
+                    'message' => 'success',
+                    'data' => [
+                        'token' => $token,
+                        'user_data' => $user,
+                    ],
                 ], 200);
             } else {
                 return response()->json([
-                    "message" => "Invalid Creditional",
-                    "data" => ""
+                    'message' => 'Invalid Creditional',
+                    'data' => '',
                 ], 401);
             }
         } catch (\Exception $error) {
             return response()->json([
-                "message" => "Something was wrong",
-                "data" => ""
+                'message' => 'Something was wrong',
+                'data' => '',
             ], 422);
         }
     }

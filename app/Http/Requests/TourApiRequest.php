@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+
 class TourApiRequest extends FormRequest
 {
     /**
@@ -27,15 +28,15 @@ class TourApiRequest extends FormRequest
             'dateFrom' => 'date',
             'dateTo' => 'date',
             'orderBy' => Rule::in(['price']),
-            'sortBy' => Rule::in(['asc', 'desc'])
+            'sortBy' => Rule::in(['asc', 'desc']),
         ];
     }
 
-    public function messages() : array
+    public function messages(): array
     {
         return [
             'orderBy' => "This 'orderBy' must be price only",
-            'sortBy' => "This 'orderBy' must be price only 'asc' or 'desc' "
+            'sortBy' => "This 'orderBy' must be price only 'asc' or 'desc' ",
         ];
     }
 }
