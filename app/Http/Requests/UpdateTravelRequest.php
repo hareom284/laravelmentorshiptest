@@ -25,7 +25,7 @@ class UpdateTravelRequest extends FormRequest
             'name' => 'required',
             'is_public' => 'required|boolean',
             'description' => 'string',
-            'number_of_days' => 'required|numeric'
+            'number_of_days' => 'required|numeric',
         ];
     }
 }

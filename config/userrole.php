@@ -1,8 +1,6 @@
 <?php
 
 return [
-    "admin" => "admin",
-    "editor" => "editor",
-]
-
-?>
+    'admin' => 'admin',
+    'editor' => 'editor',
+];
