@@ -1,0 +1,941 @@
+name: 'Travel management'
+description: |-
+
+  APIs for managing travels
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/travels
+    metadata:
+      groupName: 'Travel management'
+      groupDescription: |-
+
+        APIs for managing travels
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        create Travel  travel
+         for create travel
+      description: '@authenticated'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: dolores
+        type: string
+        custom: []
+      is_public:
+        name: is_public
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Ducimus est corrupti explicabo ipsam et.'
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 506.07
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: dolores
+      is_public: false
+      description: 'Ducimus est corrupti explicabo ipsam et.'
+      number_of_days: 506.07
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/travels/{travel_id}/tour'
+    metadata:
+      groupName: 'Travel management'
+      groupDescription: |-
+
+        APIs for managing tours
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 997c2d52-9e5f-4f6b-920b-59d47ef0dd7a
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 997c2d52-9e5f-4f6b-920b-59d47ef0dd7a
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: iste
+        type: string
+        custom: []
+      start_date:
+        name: start_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-06-24T06:01:51'
+        type: string
+        custom: []
+      end_date:
+        name: end_date
+        description: 'Must be a valid date. Must be a date after <code>start_date</code>.'
+        required: true
+        example: '2063-05-04'
+        type: string
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 0.5263
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: iste
+      start_date: '2023-06-24T06:01:51'
+      end_date: '2063-05-04'
+      price: 0.5263
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/travels/{travel_id}'
+    metadata:
+      groupName: 'Travel management'
+      groupDescription: |-
+
+        APIs for managing travels
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        update travel only for both editor and admin
+        this end
+      description: '@authenticated'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 997c2d52-9e5f-4f6b-920b-59d47ef0dd7a
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 997c2d52-9e5f-4f6b-920b-59d47ef0dd7a
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: omnis
+        type: string
+        custom: []
+      is_public:
+        name: is_public
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Et repudiandae unde et.'
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 5.837054
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: omnis
+      is_public: false
+      description: 'Et repudiandae unde et.'
+      number_of_days: 5.837054
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+             "name": "road-to-kadsdsdow-aabb",
+             "is_public": 1,
+             "description": "this is description where you start something",
+             "number_of_days": 10,
+             "slug": "road-to-kadsdsdow-aabb",
+             "id": "997c2d52-9e5f-4f6b-920b-59d47ef0dd7a",
+             "updated_at": "2023-06-24T05:55:53.000000Z",
+             "created_at": "2023-06-24T05:55:53.000000Z"
+              }
+            }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/travels
+    metadata:
+      groupName: 'Travel management'
+      groupDescription: |-
+
+        APIs for managing travels
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Travel public travels list'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+           {
+               "id": "997c1f88-9ef8-4908-85f4-a43bc627a4a0",
+               "name": "Ms. Eliane Pfeffer",
+               "slug": "ms-eliane-pfeffer",
+               "description": "I like being that person, I'll come up: if not, I'll stay down here! It'll be no sort of thing.",
+               "number_of_days": 98,
+               "number_of_nights": 97
+           },
+           {
+               "id": "997c1f88-a010-4ed4-a244-0271bcb4dda7",
+               "name": "Adele Blanda",
+               "slug": "adele-blanda",
+               "description": "In the very tones of her little sister's dream. The long grass rustled at her hands, wondering if.",
+               "number_of_days": 59,
+               "number_of_nights": 58
+           },
+           {
+               "id": "997c1f88-a11b-4ea1-ac31-6abb4e93705d",
+               "name": "Conor Braun",
+               "slug": "conor-braun",
+               "description": "March Hare. 'Sixteenth,' added the Gryphon, 'she wants for to know when the White Rabbit, 'but it.",
+               "number_of_days": 94,
+               "number_of_nights": 93
+           },
+           {
+               "id": "997c1f88-a239-4b6f-978c-1b28978b7938",
+               "name": "Maxie Reichel",
+               "slug": "maxie-reichel",
+               "description": "Pat, what's that in about half no time! Take your choice!' The Duchess took her choice, and was.",
+               "number_of_days": 70,
+               "number_of_nights": 69
+           },
+           {
+               "id": "997c1f88-a353-45d9-9f6e-60ba7ed20728",
+               "name": "Darby Schaden DDS",
+               "slug": "darby-schaden-dds",
+               "description": "Majesty,' said Alice in a tone of great surprise. 'Of course it was,' he said. (Which he certainly.",
+               "number_of_days": 61,
+               "number_of_nights": 60
+           },
+           {
+               "id": "997c1f88-a460-4254-8c67-7de5da06a627",
+               "name": "Dr. Mike Wiza DVM",
+               "slug": "dr-mike-wiza-dvm",
+               "description": "There were doors all round her, calling out in a great thistle, to keep herself from being broken.",
+               "number_of_days": 69,
+               "number_of_nights": 68
+           },
+           {
+               "id": "997c1f88-a56b-4d2d-a81e-d2a4fbf00c8a",
+               "name": "Amara Glover DDS",
+               "slug": "amara-glover-dds",
+               "description": "Queen. 'I haven't the slightest idea,' said the Gryphon. 'The reason is,' said the King: 'however.",
+               "number_of_days": 65,
+               "number_of_nights": 64
+           },
+           {
+               "id": "997c1f88-a675-4291-838a-2e8179aa95d9",
+               "name": "Mr. Schuyler Kub",
+               "slug": "mr-schuyler-kub",
+               "description": "Alice hastily replied; 'only one doesn't like changing so often, you know.' He was an immense.",
+               "number_of_days": 75,
+               "number_of_nights": 74
+           },
+           {
+               "id": "997c1f88-a7a0-4a6f-81b4-49cc466ead38",
+               "name": "Alessandra Cummings",
+               "slug": "alessandra-cummings",
+               "description": "Alice again, in a sort of thing that would happen: '\"Miss Alice! Come here directly, and get ready.",
+               "number_of_days": 48,
+               "number_of_nights": 47
+           },
+           {
+               "id": "997c1f88-a8c5-4fd3-891a-535b0eccd3cc",
+               "name": "Prof. Sandrine Effertz IV",
+               "slug": "prof-sandrine-effertz-iv",
+               "description": "Alice, in a tone of great surprise. 'Of course it was,' the March Hare. 'Exactly so,' said the.",
+               "number_of_days": 7,
+               "number_of_nights": 6
+           },
+           {
+               "id": "997c1f88-a9c8-4ab5-a75c-e73bf429b11e",
+               "name": "Christelle Friesen",
+               "slug": "christelle-friesen",
+               "description": "He sent them word I had it written down: but I grow at a reasonable pace,' said the Queen, who had.",
+               "number_of_days": 69,
+               "number_of_nights": 68
+           },
+           {
+               "id": "997c1f88-aade-4ca3-a652-173fba442740",
+               "name": "Maymie Ratke",
+               "slug": "maymie-ratke",
+               "description": "IS that to be sure, this generally happens when you come and join the dance? Will you, won't you.",
+               "number_of_days": 44,
+               "number_of_nights": 43
+           },
+           {
+               "id": "997c1f88-ac0f-4b70-a647-6a7ba8cf8e13",
+               "name": "Prof. Vivianne Kshlerin",
+               "slug": "prof-vivianne-kshlerin",
+               "description": "YOU with us!\"' 'They were learning to draw, you know--' (pointing with his tea spoon at the Lizard.",
+               "number_of_days": 25,
+               "number_of_nights": 24
+           },
+           {
+               "id": "997c1f88-ad5a-4ef1-90e6-4effb928f25b",
+               "name": "Hassie Connelly",
+               "slug": "hassie-connelly",
+               "description": "I'm not used to say but 'It belongs to the door, and the Dormouse turned out, and, by the English.",
+               "number_of_days": 25,
+               "number_of_nights": 24
+           },
+           {
+               "id": "997c1f88-ae53-4006-a75c-f15677dccee5",
+               "name": "Orie Sporer",
+               "slug": "orie-sporer",
+               "description": "No, there were three little sisters--they were learning to draw, you know--' (pointing with his.",
+               "number_of_days": 75,
+               "number_of_nights": 74
+           }
+           ],
+            "links": {
+           "first": "http://laravelmentorshiptest.test/api/v1/travels?page=1",
+           "last": "http://laravelmentorshiptest.test/api/v1/travels?page=2",
+           "prev": null,
+           "next": "http://laravelmentorshiptest.test/api/v1/travels?page=2"
+           },
+               "meta": {
+           "current_page": 1,
+           "from": 1,
+           "last_page": 2,
+           "links": [
+               {
+                   "url": null,
+                   "label": "&laquo; Previous",
+                   "active": false
+               },
+               {
+                   "url": "http://laravelmentorshiptest.test/api/v1/travels?page=1",
+                   "label": "1",
+                   "active": true
+               },
+               {
+                   "url": "http://laravelmentorshiptest.test/api/v1/travels?page=2",
+                   "label": "2",
+                   "active": false
+               },
+               {
+                   "url": "http://laravelmentorshiptest.test/api/v1/travels?page=2",
+                   "label": "Next &raquo;",
+                   "active": false
+               }
+           ],
+           "path": "http://laravelmentorshiptest.test/api/v1/travels",
+           "per_page": 15,
+           "to": 15,
+           "total": 16
+          }
+           }
+          *********
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/travels/{travel_slug}/tours'
+    metadata:
+      groupName: 'Travel management'
+      groupDescription: |-
+
+        APIs for managing tours
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_slug:
+        name: travel_slug
+        description: 'The slug of the travel.'
+        required: true
+        example: 997c2d52-9e5f-4f6b-920b-59d47ef0dd7a
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_slug: 997c2d52-9e5f-4f6b-920b-59d47ef0dd7a
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      priceFrom:
+        name: priceFrom
+        description: ''
+        required: false
+        example: 14
+        type: integer
+        custom: []
+      priceTo:
+        name: priceTo
+        description: ''
+        required: false
+        example: 13
+        type: integer
+        custom: []
+      dateFrom:
+        name: dateFrom
+        description: 'Must be a valid date.'
+        required: false
+        example: '2023-06-24T06:01:51'
+        type: string
+        custom: []
+      dateTo:
+        name: dateTo
+        description: 'Must be a valid date.'
+        required: false
+        example: '2023-06-24T06:01:51'
+        type: string
+        custom: []
+      orderBy:
+        name: orderBy
+        description: 'Must be one of <code>price</code>.'
+        required: false
+        example: price
+        type: string
+        custom: []
+      sortBy:
+        name: sortBy
+        description: 'Must be one of <code>asc</code> or <code>desc</code>.'
+        required: false
+        example: desc
+        type: string
+        custom: []
+    cleanBodyParameters:
+      priceFrom: 14
+      priceTo: 13
+      dateFrom: '2023-06-24T06:01:51'
+      dateTo: '2023-06-24T06:01:51'
+      orderBy: price
+      sortBy: desc
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Travel] 997c2d52-9e5f-4f6b-920b-59d47ef0dd7a",
+              "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+              "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+              "line": 410,
+              "trace": [
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+                      "line": 386,
+                      "function": "prepareException",
+                      "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\nunomaduro\\collision\\src\\Adapters\\Laravel\\ExceptionHandler.php",
+                      "line": 54,
+                      "function": "render",
+                      "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php",
+                      "line": 51,
+                      "function": "render",
+                      "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 185,
+                      "function": "handleException",
+                      "class": "Illuminate\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 159,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 135,
+                      "function": "handleRequest",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 87,
+                      "function": "handleRequestUsingNamedLimiter",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 800,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 777,
+                      "function": "runRouteWithinStack",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 741,
+                      "function": "runRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 730,
+                      "function": "dispatchToRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 200,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Foundation\\Http\\{closure}",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
+                      "line": 31,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
+                      "line": 40,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+                      "line": 27,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+                      "line": 86,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
+                      "line": 62,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 175,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 144,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 92,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 209,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 166,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 95,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 124,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 71,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 49,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+                      "line": 51,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+                      "line": 41,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+                      "line": 662,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+                      "line": 208,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\symfony\\console\\Command\\Command.php",
+                      "line": 326,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+                      "line": 178,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\symfony\\console\\Application.php",
+                      "line": 1081,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\symfony\\console\\Application.php",
+                      "line": 320,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\symfony\\console\\Application.php",
+                      "line": 174,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+                      "line": 200,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\laragonzzw\\www\\laravelmentorshiptest\\artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -52,6 +52,7 @@ class TourApiTest extends TestCase
 
         $response = $this->get('/api/v1/travels/'.$travel->slug.'/tours'.'?priceTo=100&&priceFrom=300&priceTo=800');
 
+        dd($response);
         $response->assertStatus(200);
 
         $data = $response->json();
