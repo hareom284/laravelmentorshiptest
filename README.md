@@ -39,3 +39,4 @@ A public (no auth) endpoint to get a list of paginated tours by the travel `slug
 
 - [X] Feature tests are a big big plus.
 
+# This is a course from Laravel daily
