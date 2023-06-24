@@ -33,9 +33,9 @@ A public (no auth) endpoint to get a list of paginated tours by the travel `slug
 
 - [x] Every creation endpoint, of course, should create one and only one resource. You can't, for example, send an array of resources to create;
 
-- [ ] Usage of php-cs-fixer and larastan are a plus;
+- [X] Usage of php-cs-fixer and larastan are a plus;
 
-- [ ] Creating docs is a big plus;
+- [X] Creating docs is a big plus;
 
-- [ ] Feature tests are a big big plus.
+- [X] Feature tests are a big big plus.
 
