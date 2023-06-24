@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTravelCreateRequest;
+use App\Http\Requests\UpdateTravelRequest;
 use App\Http\Resources\GetTravelResource;
 use App\Http\Resources\TravelResource;
 use App\Models\Travel;
+use Illuminate\Http\Request;
 
 class TravelApiController extends Controller
 {
@@ -24,11 +26,28 @@ class TravelApiController extends Controller
             $travels = Travel::create($request->validated());
             return new GetTravelResource($travels);
         } catch (\Exception $error) {
-            dd($error->getMessage());
             return response()->json([
                 "message" => "Something was wrong",
                 "data" => ""
             ], 422);
         }
+    }
+
+    public function update(Travel $travel,UpdateTravelRequest $request)
+    {
+
+        try {
+            $travel->update($request->all());
+            return new GetTravelResource($travel);
+
+        } catch (\Exception $error) {
+            return response()->json([
+                "message" => "Something was wrong",
+                "data" => ""
+            ], 422);
+        }
+
+
+
     }
 }

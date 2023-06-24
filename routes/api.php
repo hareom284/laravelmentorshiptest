@@ -19,11 +19,18 @@ use App\Http\Controllers\Api\V1\AuthApiController;
 
 
 
-Route::prefix('admin')
-    ->middleware(['auth:sanctum','role:admin'])->group(function () {
+Route::middleware(['auth:sanctum'])->prefix('admin')->group(function(){
+
+    Route::middleware(['role:admin'])->group(function () {
         Route::post('travels', [TravelApiController::class, 'create']);
         Route::post('travels/{travel}/tour',[TourApiController::class, 'create']);
     });
+
+    //this route is protected for not admin user can edit or any
+    Route::post('travels/{travel}', [TravelApiController::class, 'update']);
+
+
+});
 
 Route::post("admin/login", [AuthApiController::class, 'login']);
 Route::get('travels', [TravelApiController::class, 'index']);

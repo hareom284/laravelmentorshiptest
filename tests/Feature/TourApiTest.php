@@ -11,9 +11,7 @@ use Carbon\Carbon;
 
 class TourApiTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+    use RefreshDatabase;
     public function test_tour_can_return_travel_slug_correctecly(): void
     {
         $travel = Travel::factory()->create(['is_public' => true]);

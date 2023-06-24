@@ -24,7 +24,9 @@ class TravelApiTest extends TestCase
 
         $public_travel = Travel::factory()->create(["is_public" => true]);
         Travel::factory()->create(["is_public" => false]);
+
         $response = $this->get('/api/v1/travels');
+
         $response->assertStatus(200);
         $response->assertJsonCount(1,'data');
         $response->assertJsonPath('data.0.name',$public_travel->name);
