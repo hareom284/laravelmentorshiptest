@@ -12,7 +12,7 @@
 - [x] A private (admin) endpoint to create new users. If you want, this could also be an artisan command, as you like. It will mainly be used to generate users for this exercise
 - [x] A private (admin) endpoint to create new travels;
 - [x] A private (admin) endpoint to create new tours for travel;
-- [ ] A private (editor) endpoint to update travel;
+- [X] A private (editor) endpoint to update travel;
 - [x] A public (no auth) endpoint to get a list of paginated travels. It must return only `public` travels;
 A public (no auth) endpoint to get a list of paginated tours by the travel `slug` (e.g. all the tours of the travel `foo-bar`). Users can filter (search) the results by `priceFrom`, `priceTo`, `dateFrom` (from that `startingDate`), and `dateTo` (until that `startingDate`). Users can sort the list by `price` asc and desc. They will **always** be sorted, after every additional user-provided filter, by ``starting date `` asc.
 
