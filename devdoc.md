@@ -61,7 +61,8 @@ interface SecurityRepositoryInterface
 
 <strong> This below will be used for related database  inserting and updating with Eloquent </strong>
 
-```php
+```.php
+
 <?php
 
 namespace Src\BlendedConcept\Security\Application\Repositories\Eloquent;
@@ -153,13 +154,15 @@ class SecurityRepository implements SecurityRepositoryInterface
     }
 }
 
+
 ```
 
 ## Step 3
 
 <strong>You need to write UserRepository and UserInerface that might need to bind inside this folder path like below `src/BlendedConcept/Security/Application/Providers/SecurtiyServiceProvider.php` as below then you called to use it from UseCase </strong>
 
-```
+```php
+
   <?php
 
 namespace Src\BlendedConcept\Security\Application\Providers;
