@@ -203,6 +203,103 @@ class SecurityServiceProvider extends ServiceProvider
 
 ### Step 4 
 
-<strong> You need to create Usecase for that action uses Commands for inserting and updating data and Queries for get data from tables</strong>
+<strong>
+    
+`src/BlendedConcept/Security/Application/UseCases` This file has to folder Command is used for Inserting and updating data and Queries is used for queries from
+database 
+
+</strong>
+
+Inside `src/BlendedConcept/Security/Application/UseCases/Commands/User/StoreUserCommand.php` you need to call the repository interface that you implement inside the repository as below
+
+StoreUserCommand is used for inserting data inside the database.
+
+```php
+
+<?php
+
+namespace Src\BlendedConcept\Security\Application\UseCases\Commands\User;
+
+use Src\BlendedConcept\Security\Domain\Model\User;
+use Src\BlendedConcept\Security\Domain\Repositories\SecurityRepositoryInterface;
+use Src\Common\Domain\CommandInterface;
+
+class StoreUserCommand implements CommandInterface
+{
+    private SecurityRepositoryInterface $repository;
+
+    public function __construct(
+        private readonly User $user
+    ) {
+        $this->repository = app()->make(SecurityRepositoryInterface::class);
+    }
+
+    public function execute()
+    {
+        return $this->repository->createUser($this->user);
+    }
+}
+
+```
+
+UpdateUserCommand is used to update data inside the data 
+
+```php
+
+<?php
+
+namespace Src\BlendedConcept\Security\Application\UseCases\Commands\User;
+
+use Src\BlendedConcept\Security\Application\DTO\UserData;
+use Src\BlendedConcept\Security\Domain\Repositories\SecurityRepositoryInterface;
+use Src\Common\Domain\CommandInterface;
+
+class UpdateUserCommand implements CommandInterface
+{
+    private SecurityRepositoryInterface $repository;
+
+    public function __construct(
+        private readonly UserData $userData
+    ) {
+        $this->repository = app()->make(SecurityRepositoryInterface::class);
+    }
+
+    public function execute()
+    {
+        return $this->repository->updateUser($this->userData);
+    }
+}
+
+
+```
+
+Get UserListWithPagination.php is used for queries data from database 
+
+```php
+
+<?php
+
+namespace Src\BlendedConcept\Security\Application\UseCases\Queries\Users;
+
+use Src\BlendedConcept\Security\Domain\Repositories\SecurityRepositoryInterface;
+use Src\Common\Domain\QueryInterface;
+
+class GetUsersWithPagination implements QueryInterface
+{
+    private SecurityRepositoryInterface $repository;
+
+    public function __construct(
+        private readonly array $filters
+    ) {
+        $this->repository = app()->make(SecurityRepositoryInterface::class);
+    }
+
+    public function handle()
+    {
+        return $this->repository->getUsers($this->filters);
+    }
+}
+
+```
 
 
